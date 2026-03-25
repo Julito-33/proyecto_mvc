@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Nueva ciudad{% endblock %}
+{% block page_title %}Crear ciudad{% endblock %}
+
+{% block content %}
+<div class="form-card">
+    <h2>Nueva ciudad</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar ciudad</button>
+    </form>
+</div>
+{% endblock %}

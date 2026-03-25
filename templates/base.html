@@ -11,17 +11,24 @@
     <div class="layout">
       <aside class="sidebar">
         <div class="sidebar-header">
-          <h2>Mi Sistema</h2>
+          <h2>Mvc Sistema</h2>
           <p>Panel de control</p>
         </div>
 
         <nav class="sidebar-nav">
-          <a href="{% url 'home' %}" class="nav-item active">Inicio</a>
-          <a href="#" class="nav-item">Usuarios</a>
-          <a href="#" class="nav-item">Reportes</a>
-          <a href="#" class="nav-item">Configuración</a>
-          <a href="{% url 'logout' %}" class="nav-item logout">Cerrar sesión</a>
-        </nav>
+    <a href="{% url 'home' %}" class="nav-item active">Inicio</a>
+
+    {% if request.user.is_authenticated %}
+        {% if request.user.is_superuser or request.user.rol == 'admin' %}
+            <a href="{% url 'lista_usuarios' %}" class="nav-item">Usuarios</a>
+            <a href="{% url 'lista_ciudades' %}" class="nav-item">Ciudades</a>
+            <a href="{% url 'crear_usuario' %}" class="nav-item">Nuevo usuario</a>
+            <a href="{% url 'crear_ciudad' %}" class="nav-item">Nueva ciudad</a>
+        {% endif %}
+    {% endif %}
+
+    <a href="{% url 'logout' %}" class="nav-item logout">Cerrar sesión</a>
+</nav>
       </aside>
 
       <div class="main-content">

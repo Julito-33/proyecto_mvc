@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Nuevo usuario{% endblock %}
+{% block page_title %}Crear usuario{% endblock %}
+
+{% block content %}
+<div class="form-card">
+    <h2>Nuevo usuario</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar usuario</button>
+    </form>
+</div>
+{% endblock %}
