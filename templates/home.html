@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Inicio
+{% endblock %}
+
+{% block page_title %}
+Panel principal
+{% endblock %}
+
+{% block content %}
+<section class="cards">
+    <div class="card">
+        <h3>Usuarios</h3>
+        <p class="card-number">128</p>
+        <span class="card-text">Usuarios registrados</span>
+    </div>
+
+    <div class="card">
+        <h3>Ingresos</h3>
+        <p class="card-number">Gs. 4.500.000</p>
+        <span class="card-text">Ingresos del mes</span>
+    </div>
+
+    <div class="card">
+        <h3>Reportes</h3>
+        <p class="card-number">32</p>
+        <span class="card-text">Reportes generados</span>
+    </div>
+
+    <div class="card">
+        <h3>Estado</h3>
+        <p class="card-number">Activo</p>
+        <span class="card-text">Sistema funcionando correctamente</span>
+    </div>
+</section>
+
+<section class="dashboard-grid">
+    <div class="panel">
+        <h2>Resumen del sistema</h2>
+        <p>
+            Bienvenido, <strong>{{ request.user.username }}</strong>. Has iniciado sesión correctamente
+            y ya estás dentro del panel principal del sistema.
+        </p>
+        <p>
+            Desde aquí podrás administrar módulos, usuarios, reportes y configuraciones.
+        </p>
+    </div>
+
+    <div class="panel">
+        <h2>Actividad reciente</h2>
+        <ul class="activity-list">
+            <li>Inicio de sesión realizado correctamente.</li>
+            <li>Base de datos SQLite conectada.</li>
+            <li>Interfaz administrativa cargada.</li>
+            <li>Proyecto listo para agregar nuevos módulos.</li>
+        </ul>
+    </div>
+</section>
+{% endblock %}
